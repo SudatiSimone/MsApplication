@@ -3,7 +3,7 @@ package com.app.api.account.client;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient(value="userClient", url="http://localhost:8090/users")
+@FeignClient(value="userClient", url="http://blu26804.replynet.prv:8090/users")
 public interface UsersClient {
 	
 	@GetMapping("/status")
