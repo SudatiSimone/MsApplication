@@ -6,27 +6,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.api.account.client.UsersClient;
+import com.app.api.account.dto.UserDto;
 
 @RestController
 @RequestMapping("/account")
 public class AccountController {
 	
 	@Autowired
-	private UsersClient user_client;
+	private UsersClient userClient;
 	
-	@GetMapping("/user-status")
-	public String getUserStatus() {
-		return user_client.getStatus();
+	@GetMapping("/userstatus")
+	public UserDto getUserStatus() {
+		return userClient.getStatus();
 	}
 	
-	@GetMapping("/user-position")
-	public String getUserPosition() {
-		return user_client.getPosition();
-	}
-	
-	@GetMapping("/user-number")
-	public String getUserNumber() {
-		return user_client.getNumber();
-	}
+
 
 }
