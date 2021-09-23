@@ -9,7 +9,8 @@ import com.app.api.account.dto.UserDto;
 
 
 
-@FeignClient("USERS-WS")
+//@FeignClient("USERS-WS")
+@FeignClient(name = "${feign.name}", url = "${feign.url}")
 public interface UsersClient {
 	
 	@GetMapping("/user/{userId}")
