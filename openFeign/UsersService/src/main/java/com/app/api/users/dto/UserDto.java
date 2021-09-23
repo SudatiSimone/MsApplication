@@ -18,6 +18,7 @@ public class UserDto {
 	@NotBlank
 	private Integer password;
 	private Integer userId;
+	private String associatedPort;
 	
 	
 }

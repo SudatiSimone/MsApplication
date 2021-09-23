@@ -1,8 +1,9 @@
 package com.app.api.users.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,11 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.api.users.dto.UserDto;
 
-import ch.qos.logback.classic.Logger;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
+	
+	@Autowired
+	private Environment env;
 
 	@GetMapping("/{userId}")
 	public UserDto getStatus(@PathVariable Integer userId) throws RuntimeException {
@@ -31,6 +34,7 @@ public class UserController {
 			userdto.setPassword(1324);
 			userdto.setSurname("dsgfsdhj");
 			userdto.setTelephoneNumber(243533);
+			userdto.setAssociatedPort(env.getProperty("local.server.port"));
 		} else if (userId == 2) {
 			status= HttpStatus.OK;
 			message= "Find user 2";
@@ -40,6 +44,7 @@ public class UserController {
 			userdto.setPassword(1324);
 			userdto.setSurname("abba");
 			userdto.setTelephoneNumber(111111);
+			userdto.setAssociatedPort(env.getProperty("local.server.port"));
 		} else {
 			status= HttpStatus.NO_CONTENT;
 			message= "User Not Found!!";
