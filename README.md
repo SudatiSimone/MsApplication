@@ -1,4 +1,4 @@
-# Microservice application with spring boot 
+# Microservice application with Spring boot 
 
 ## Create more instances of UserService microservice
 Jump into the microservice repo
